@@ -11,12 +11,7 @@
 		"deploy": "np --yolo",
 		"build-binaries": "run-script-os",
 		"build-binaries:win32": "node --security-revert=CVE-2024-27980 ./node_modules/prebuild/bin.js --backend cmake-js --include-regex \"^.*\\.(node|dylib|dll|so(\\.[0-9])?)$\" -r napi --all --verbose -u %GITHUB_TOKEN%",
-		"build-binaries:darwin:linux": "prebuild --backend cmake-js --include-regex \"^.*\\.(node|dylib|dll|so(\\.[0-9])?)$\" -r napi --all --verbose -u $GITHUB_TOKEN",
-		"health-check": "node -e \"console.log(require('./index.js').healthCheck())\"",
-		"platform-info": "node -e \"console.log(require('./index.js').getPlatformInfo())\"",
-		"prepare": "node scripts/prepare.js",
-		"test": "node test/test.js",
-		"postinstall": "node scripts/postinstall.js"
+		"build-binaries:darwin:linux": "prebuild --backend cmake-js --include-regex \"^.*\\.(node|dylib|dll|so(\\.[0-9])?)$\" -r napi --all --verbose -u $GITHUB_TOKEN"
 	},
 	"repository": {
 		"type": "git",
