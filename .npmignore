@@ -1,0 +1,21 @@
+# Ignore everything except the necessary files
+*
+
+# Include essential files
+!index.js
+!index.d.ts
+!package.json
+!LICENSE
+!README.md
+
+# Include prebuilt binaries
+!prebuilds/**/*
+
+# Include scripts
+!scripts/check-binary.js
+
+# Exclude unnecessary files from prebuilds
+prebuilds/**/build/Release/.deps
+prebuilds/**/build/Release/.ninja*
+prebuilds/**/build/Release/obj
+prebuilds/**/build/Release/CMakeFiles
