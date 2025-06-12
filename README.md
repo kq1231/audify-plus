@@ -28,18 +28,6 @@ npm i @voicehype/audify-plus
 
 ## 🔧 Usage
 
-### Basic Usage
-
-```javascript
-const audify = require('@voicehype/audify-plus');
-
-// Check if the library is working
-console.log(audify.healthCheck());
-
-// Get platform information
-console.log(audify.getPlatformInfo());
-```
-
 ### Opus Encode & Decode
 
 ```javascript

@@ -1,6 +1,6 @@
 {
 	"name": "@voicehype/audify-plus",
-	"version": "2.0.0",
+	"version": "2.0.1",
 	"description": "Play/Stream/Record PCM audio data & Encode/Decode Opus to PCM audio data",
 	"main": "index.js",
 	"types": "index.d.ts","scripts": {
@@ -32,21 +32,19 @@
 		"asio",
 		"wasapi",
 		"record",
+		"audio io",
+		"microphone",
 		"input",
 		"output",
 		"speaker",
 		"sound",
 		"audio",
-		"music",
 		"voip",
 		"headphones"
 	],
-	"author": "Almog Hamdani",
+	"author": "Kifayat Ullah",
 	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/almoghamdani/audify/issues"
-	},
-	"homepage": "https://github.com/almoghamdani/audify#readme",
+	"homepage": "https://github.com/kq1231/audify-plus#readme",
 	"dependencies": {
 		"bindings": "^1.5.0",
 		"cmake-js": "^7.3.0",
