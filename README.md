@@ -1,5 +1,9 @@
 # Audify-JS-Plus
 
+**Made with ❤️ by VoiceHype, Alhamdulillah! Visit [voicehype.ai](https://voicehype.ai)**
+
+Bismillahir Rahmanir Raheem (In the name of Allah, the Most Gracious, the Most Merciful)
+
 Enhanced cross-platform audio I/O library with VS Code extension support. Based on the original [Audify](https://github.com/almoghamdani/audify) project with **pre-bundled** binaries.
 
 ## Motivation
