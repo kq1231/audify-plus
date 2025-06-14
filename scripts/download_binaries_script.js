@@ -110,7 +110,7 @@ function extractTarGz(tarPath, extractTo) {
 }
 
 function findAndMoveNodeFile(extractDir, targetPath) {
-  console.log(`🔍 Looking for .node file in: ${extractDir}`);
+  console.log(`🔍 Looking for .node file and related files in: ${extractDir}`);
   
   function findNodeFile(dir) {
     const files = fs.readdirSync(dir);
@@ -123,17 +123,53 @@ function findAndMoveNodeFile(extractDir, targetPath) {
         const found = findNodeFile(fullPath);
         if (found) return found;
       } else if (file.endsWith('.node')) {
-        console.log(`  🎯 Found: ${fullPath}`);
+        console.log(`  🎯 Found .node file: ${fullPath}`);
         return fullPath;
       }
     }
     return null;
   }
   
+  // Find all DLL files in the same directory as the .node file
+  function copyAllRelatedFiles(nodeFilePath) {
+    const nodeDir = path.dirname(nodeFilePath);
+    const targetDir = path.dirname(targetPath);
+    const files = fs.readdirSync(nodeDir);
+    
+    let copiedFiles = 0;
+    
+    for (const file of files) {
+      const fullPath = path.join(nodeDir, file);
+      const stat = fs.statSync(fullPath);
+      
+      if (!stat.isDirectory()) {
+        // Copy all files from the directory (.node, .dll, .so, etc.)
+        const targetFilePath = path.join(targetDir, file);
+        fs.copyFileSync(fullPath, targetFilePath);
+        console.log(`  ✅ Copied related file: ${file}`);
+        copiedFiles++;
+      }
+    }
+    
+    return copiedFiles;
+  }
+  
   const nodeFile = findNodeFile(extractDir);
   if (nodeFile) {
+    // Create target directory if it doesn't exist
+    const targetDir = path.dirname(targetPath);
+    if (!fs.existsSync(targetDir)) {
+      fs.mkdirSync(targetDir, { recursive: true });
+    }
+    
+    // Copy the main .node file
     fs.copyFileSync(nodeFile, targetPath);
-    console.log(`  ✅ Moved to: ${targetPath}`);
+    console.log(`  ✅ Moved .node file to: ${targetPath}`);
+    
+    // Copy all related files
+    const relatedFilesCount = copyAllRelatedFiles(nodeFile);
+    console.log(`  ✅ Copied ${relatedFilesCount} related files to the same directory`);
+    
     return true;
   } else {
     console.error(`  ❌ No .node file found in ${extractDir}`);

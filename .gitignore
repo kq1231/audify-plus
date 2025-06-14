@@ -68,9 +68,6 @@ jspm_packages/
 # Lerna
 lerna-debug.log
 
-# Ignore prebuilds dir
-/prebuilds
-
 # System Files
 .DS_Store
 Thumbs.db

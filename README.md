@@ -1,44 +1,37 @@
-[![npm version](https://badge.fury.io/js/audify.svg)](https://www.npmjs.com/package/audify)
-[![Master Build Status](https://github.com/almoghamdani/audify/actions/workflows/commit-build.yml/badge.svg?branch=master)](https://github.com/almoghamdani/audify/actions/workflows/commit-build.yml)
-[![Prebuilt Build Status](https://github.com/almoghamdani/audify/actions/workflows/deploy-build.yml/badge.svg)](https://github.com/almoghamdani/audify/actions/workflows/deploy-build.yml)
+# Audify-JS-Plus
 
-# Audify.js
+Enhanced cross-platform audio I/O library with VS Code extension support. Based on the original [Audify](https://github.com/almoghamdani/audify) project with **pre-bundled** binaries.
 
-Audify.js - Play/Stream/Record PCM audio data &amp; Encode/Decode Opus to PCM audio data
+## Motivation
 
-## Features
+We couldn't find any robust solution for audio I/O library that works seamlessly in VS Code extensions without going through the hassle of compiling binaries. Audify-JS-Plus addresses this by providing pre-built binaries for Windows, macOS, and Linux.
 
-- Encode 16-bit integer PCM or floating point PCM to Opus packet using C++ Opus library.
-- Decode Opus packets to 16-bit integer PCM or floating point PCM using C++ Opus library.
-- Complete API for realtime audio input/output across Linux (native ALSA, JACK, PulseAudio and OSS), Macintosh OS X (CoreAudio and JACK), and Windows (DirectSound, ASIO and WASAPI) operating systems using C++ RtAudio library.
+## ✨ Features
 
-## Installation
+- **Cross-platform audio processing** - Works on Windows, macOS, and Linux
+- **VS Code extension optimized** - Direct binary loading without file system operations
+- **Opus encoding/decoding** - High-quality audio compression
+- **RtAudio integration** - Real-time audio input/output
+- **Zero dependencies** - All native binaries included
 
+## 🚀 Installation
+
+```bash
+npm i @voicehype/audify-plus
 ```
-npm install audify
-```
 
-**_Most regular installs will support prebuilds that are built with each release._**
+## 📋 Supported Platforms
 
-**_Prebuilds are available for Node/Electron versions that support N-API 5-9._**
+- **Windows**: x64, ia32
+- **macOS**: x64, arm64 (Apple Silicon)
+- **Linux**: x64, arm64, arm
 
-#### Requirements for source build
+## 🔧 Usage
 
-- Node or Electron versions that support N-API 5 and up ([N-API Node Version Matrix](https://nodejs.org/docs/latest/api/n-api.html#node-api-version-matrix))
-- [CMake](http://www.cmake.org/download/)
-- A proper C/C++ compiler toolchain of the given platform
-  - **Windows**:
-    - [Visual C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/) or a recent version of Visual C++ will do ([the free Community](https://www.visualstudio.com/products/visual-studio-community-vs) version works well)
-  - **Unix/Posix**:
-    - Clang or GCC
-    - Ninja or Make (Ninja will be picked if both present)
-
-## Example
-
-#### Opus Encode & Decode
+### Opus Encode & Decode
 
 ```javascript
-const { OpusEncoder, OpusDecoder, OpusApplication } = require("audify");
+const { OpusEncoder, OpusDecoder, OpusApplication } = require("@voicehype/audify-plus");
 
 // Init encoder and decoder
 // Sample rate is 48kHz and the amount of channels is 2
@@ -47,17 +40,17 @@ const encoder = new OpusEncoder(48000, 2, OpusApplication.OPUS_APPLICATION_AUDIO
 const decoder = new OpusDecoder(48000, 2);
 
 const frameSize = 1920; // 40ms
-const buffer = ...
+const buffer = ... // Your PCM audio buffer
 
 // Encode and then decode
 var encoded = encoder.encode(buffer, frameSize);
 var decoded = decoder.decode(encoded, frameSize);
 ```
 
-#### Record audio and play it back realtime
+### Record Audio and Play it Back Realtime
 
 ```javascript
-const { RtAudio, RtAudioFormat } = require("audify");
+const { RtAudio, RtAudioFormat } = require("@voicehype/audify-plus");
 
 // Init RtAudio instance using default sound API
 const rtAudio = new RtAudio(/* Insert here specific API if needed */);
@@ -85,10 +78,87 @@ rtAudio.openStream(
 rtAudio.start();
 ```
 
-## Documentation
+### RtAudio Device Query
 
-Full documentation available [here](https://almoghamdani.github.io/audify/).
+```javascript
+const { RtAudio, RtAudioApi } = require("@voicehype/audify-plus");
 
-## Legal
+const rtAudio = new RtAudio(RtAudioApi.RTAUDIO_API_UNSPECIFIED);
+const devices = rtAudio.getDevices();
+console.log('Available audio devices:', devices);
+```
 
-This project is licensed under the MIT license.
+## 🎯 Constants
+
+### Opus Application Types
+```javascript
+const { OpusApplication } = audify;
+- OpusApplication.OPUS_APPLICATION_VOIP
+- OpusApplication.OPUS_APPLICATION_AUDIO
+- OpusApplication.OPUS_APPLICATION_RESTRICTED_LOWDELAY
+```
+
+### RtAudio APIs
+```javascript
+const { RtAudioApi } = audify;
+- RtAudioApi.RTAUDIO_API_UNSPECIFIED
+- RtAudioApi.RTAUDIO_API_LINUX_ALSA
+- RtAudioApi.RTAUDIO_API_LINUX_PULSE
+- RtAudioApi.RTAUDIO_API_MACOSX_CORE
+- RtAudioApi.RTAUDIO_API_WINDOWS_WASAPI
+// ... and more
+```
+
+## 📈 Performance
+
+- **Zero runtime dependencies** - All binaries are prebuilt
+- **Direct binary loading** - No file copying at runtime
+- **Optimized for extensions** - Minimal file system operations
+- **Cross-platform** - Native performance on all supported platforms
+
+## 🤝 Contributing
+
+This is an enhanced version of the original Audify project. For issues related to the core audio functionality, please refer to the [original Audify repository](https://github.com/almoghamdani/audify).
+
+For issues specific to audify-plus enhancements:
+1. Fork this repository
+2. Create a feature branch
+3. Make your changes
+4. Test across platforms
+5. Submit a pull request
+
+## 📄 License
+
+MIT License - same as the original Audify project.
+
+## 🙏 Acknowledgments
+
+- Original [Audify](https://github.com/almoghamdani/audify) project by [almoghamdani](https://github.com/almoghamdani)
+- The Opus codec team
+- The RtAudio library developers
+
+## 📚 API Reference
+
+### Classes
+
+#### `OpusEncoder`
+- `constructor(sampleRate, channels, application)`
+- `encode(buffer)` - Encode PCM audio to Opus
+- `destroy()` - Clean up encoder resources
+
+#### `OpusDecoder`
+- `constructor(sampleRate, channels)`
+- `decode(buffer)` - Decode Opus audio to PCM
+- `destroy()` - Clean up decoder resources
+
+#### `RtAudio`
+- `constructor(api)`
+- `getDevices()` - Get available audio devices
+- `openStream(outputParams, inputParams, format, sampleRate, bufferFrames, callback)`
+- `closeStream()` - Close audio stream
+- `startStream()` - Start audio processing
+- `stopStream()` - Stop audio processing
+
+---
+
+**Made with ❤️ by VoiceHype, Alhamdulillah! Visit [voicehype.ai](https://voicehype.ai)**

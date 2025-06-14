@@ -1,26 +1,20 @@
 {
-	"name": "audify",
-	"version": "1.9.0",
+	"name": "@voicehype/audify-plus",
+	"version": "2.0.1",
 	"description": "Play/Stream/Record PCM audio data & Encode/Decode Opus to PCM audio data",
 	"main": "index.js",
-	"types": "index.d.ts",
-	"scripts": {
+	"types": "index.d.ts","scripts": {
 		"docs": "typedoc index.d.ts --hideGenerator --name Audify.js",
 		"rebuild": "cmake-js compile",
-		"install": "prebuild-install -r napi || npm run rebuild",
+		"install": "node scripts/check-binary.js",
 		"deploy": "np --yolo",
 		"build-binaries": "run-script-os",
 		"build-binaries:win32": "node --security-revert=CVE-2024-27980 ./node_modules/prebuild/bin.js --backend cmake-js --include-regex \"^.*\\.(node|dylib|dll|so(\\.[0-9])?)$\" -r napi --all --verbose -u %GITHUB_TOKEN%",
-		"build-binaries:darwin:linux": "prebuild --backend cmake-js --include-regex \"^.*\\.(node|dylib|dll|so(\\.[0-9])?)$\" -r napi --all --verbose -u $GITHUB_TOKEN",
-		"health-check": "node -e \"console.log(require('./index.js').healthCheck())\"",
-		"platform-info": "node -e \"console.log(require('./index.js').getPlatformInfo())\"",
-		"prepare": "node scripts/prepare.js",
-		"test": "node test/test.js",
-		"postinstall": "node scripts/postinstall.js"
+		"build-binaries:darwin:linux": "prebuild --backend cmake-js --include-regex \"^.*\\.(node|dylib|dll|so(\\.[0-9])?)$\" -r napi --all --verbose -u $GITHUB_TOKEN"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/almoghamdani/audify.git"
+		"url": "git+https://github.com/kq1231/audify-plus.git"
 	},
 	"keywords": [
 		"play",
@@ -38,21 +32,19 @@
 		"asio",
 		"wasapi",
 		"record",
+		"audio io",
+		"microphone",
 		"input",
 		"output",
 		"speaker",
 		"sound",
 		"audio",
-		"music",
 		"voip",
 		"headphones"
 	],
-	"author": "Almog Hamdani",
+	"author": "Kifayat Ullah",
 	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/almoghamdani/audify/issues"
-	},
-	"homepage": "https://github.com/almoghamdani/audify#readme",
+	"homepage": "https://github.com/kq1231/audify-plus#readme",
 	"dependencies": {
 		"bindings": "^1.5.0",
 		"cmake-js": "^7.3.0",
