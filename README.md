@@ -2,7 +2,23 @@
 
 **Made with ❤️ by VoiceHype, Alhamdulillah! Visit [voicehype.ai](https://voicehype.ai)**
 
-> If you're a developer looking to work faster and more efficiently, check out our tool VoiceHype — a powerful SaaS product built specifically for developers who want to speak instead of type. With VoiceHype, you can not only generate accurate transcriptions by voice, but also optimize and interact with your transcripts using advanced LLMs like Claude. It supports multiple smart modes tailored to different tasks and use-cases. Alhamdulillah, it's available as a VS Code extension — just search for "VoiceHype" on the marketplace and give it a try. It's made with developers in mind, and we hope you'll find it truly useful, InshaaAllah.
+<div align="center">
+  <h3>🎙️ Develop with Your Voice using VoiceHype 🎙️</h3>
+  
+  <p>
+    <strong>Stop Typing. Start Talking.</strong><br>
+    Transcribe accurately, optimize with AI, and super-charge your workflow.
+  </p>
+  
+  <p>
+    <a href="https://marketplace.visualstudio.com/items?itemName=VoiceHype.voicehype">
+      <img src="https://img.shields.io/badge/VS%20Code-Extension-blue?style=for-the-badge&logo=visualstudiocode" alt="VS Code Extension">
+    </a>
+    <a href="https://voicehype.ai">
+      <img src="https://img.shields.io/badge/Learn%20More-voicehype.ai-green?style=for-the-badge" alt="Learn More">
+    </a>
+  </p>
+</div>
 
 Bismillahir Rahmanir Raheem (In the name of Allah, the Most Gracious, the Most Merciful)
 
