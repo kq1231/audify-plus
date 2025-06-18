@@ -4,7 +4,6 @@
 
 > If you're a developer looking to work faster and more efficiently, check out our tool VoiceHype — a powerful SaaS product built specifically for developers who want to speak instead of type. With VoiceHype, you can not only generate accurate transcriptions by voice, but also optimize and interact with your transcripts using advanced LLMs like Claude. It supports multiple smart modes tailored to different tasks and use-cases. Alhamdulillah, it's available as a VS Code extension — just search for "VoiceHype" on the marketplace and give it a try. It's made with developers in mind, and we hope you'll find it truly useful, InshaaAllah.
 
-
 Bismillahir Rahmanir Raheem (In the name of Allah, the Most Gracious, the Most Merciful)
 
 Enhanced cross-platform audio I/O library with VS Code extension support. Based on the original [Audify](https://github.com/almoghamdani/audify) project with **pre-bundled** binaries.
