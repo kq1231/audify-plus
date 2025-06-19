@@ -2,6 +2,9 @@
 
 **Made with ❤️ by VoiceHype, Alhamdulillah! Visit [voicehype.ai](https://voicehype.ai)**
 
+**⚠️ Important Note for VS Code Extension Developers:**
+If you are using Audify Plus in a VS Code extension, please review the [VS Code Packaging Notes](#vscode-packaging-notes) at the end of this document.
+
 <div align="center">
   <h3>🎙️ Develop with Your Voice using VoiceHype 🎙️</h3>
   
@@ -182,5 +185,29 @@ MIT License - same as the original Audify project.
 - `stopStream()` - Stop audio processing
 
 ---
+
+## VS Code Packaging Notes
+
+When using Audify Plus in a VS Code extension, these configurations are critical for proper functionality:
+
+1. **Webpack Configuration**
+   The externals configuration prevents Webpack from bundling the package, ensuring the pre-built binaries remain accessible:
+   ```javascript
+   '@voicehype/audify-plus': 'commonjs @voicehype/audify-plus'
+   ```
+   *This tells Webpack to treat audify-plus as an external dependency that will be available at runtime*
+
+2. **VS Code Ignore File**
+   The ignore file modification ensures all necessary package files are included in the VSIX package:
+   ```
+   !node_modules/@voicehype/audify-plus/**
+   ```
+   *The `!` prefix overrides the default node_modules exclusion, including the package's pre-built binaries*
+
+3. **Binary Loading**
+   Audify Plus binaries are automatically loaded from the prebuilt packages. These configurations ensure:
+   - Binaries are properly packaged in the extension
+   - Correct module resolution at runtime
+   - No file system permission issues
 
 **Made with ❤️ by VoiceHype, Alhamdulillah! Visit [voicehype.ai](https://voicehype.ai)**
