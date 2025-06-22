@@ -20,6 +20,8 @@
   </p>
 </div>
 
+---
+
 **⚠️ Important ⚠️**
 <span style="color: red; font-weight: bold; background-color: #ffebee; padding: 2px; border: 2px solid red; border-radius: 4px; line-height: 2.5;">
 If you are using Audify Plus in a VS Code extension, please review the [VS Code Packaging Notes](#vscode-packaging-notes) at the end of this document.

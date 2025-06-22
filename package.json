@@ -1,6 +1,6 @@
 {
 	"name": "@voicehype/audify-plus",
-	"version": "2.0.7",
+	"version": "2.0.8",
 	"description": "Play/Stream/Record PCM audio data & Encode/Decode Opus to PCM audio data",
 	"main": "index.js",
 	"types": "index.d.ts",	"scripts": {
