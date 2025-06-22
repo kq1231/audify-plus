@@ -2,9 +2,7 @@
 
 **Made with ❤️ by VoiceHype, Alhamdulillah! Visit [voicehype.ai](https://voicehype.ai)**
 
-<div align="center">
-  <h3>🎙️ Develop with Your Voice using VoiceHype 🎙️</h3>
-  
+<div align="center">  
   <p>
     <strong>Stop Typing. Start Talking.</strong><br>
     Transcribe accurately, optimize with AI, and super-charge your workflow.
