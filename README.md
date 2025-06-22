@@ -2,9 +2,6 @@
 
 **Made with ❤️ by VoiceHype, Alhamdulillah! Visit [voicehype.ai](https://voicehype.ai)**
 
-**⚠️ Important Note for VS Code Extension Developers:**
-If you are using Audify Plus in a VS Code extension, please review the [VS Code Packaging Notes](#vscode-packaging-notes) at the end of this document.
-
 <div align="center">
   <h3>🎙️ Develop with Your Voice using VoiceHype 🎙️</h3>
   
@@ -22,6 +19,12 @@ If you are using Audify Plus in a VS Code extension, please review the [VS Code 
     </a>
   </p>
 </div>
+
+**⚠️ Important ⚠️**
+<span style="color: red; font-weight: bold; background-color: #ffebee; padding: 2px; border: 2px solid red; border-radius: 4px; line-height: 2.5;">
+If you are using Audify Plus in a VS Code extension, please review the [VS Code Packaging Notes](#vscode-packaging-notes) at the end of this document.
+</span>
+
 
 Bismillahir Rahmanir Raheem (In the name of Allah, the Most Gracious, the Most Merciful)
 
